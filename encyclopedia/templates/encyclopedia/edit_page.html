@@ -1,0 +1,22 @@
+  
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Encyclopedia | Edit {{title}}
+{% endblock %}
+
+{% block body %}
+
+{% if available == True %}
+<div class="alert alert-danger" role="alert">
+    This title already exists. Try a different title.
+</div>
+{%endif%}
+<divstyle="padding-top:100px;">
+    <form method="POST">
+        {% csrf_token %}
+        <br><div><input style="width:800px; height:50px;" type="text" name="title" placeholder="TITLE"></div></br>
+        <br><div><input style="width:800px; height:400px;" type="text" name="content" placeholder="CONTENT"></div></br>
+        <div><input style="width:120px; height:50px;"type="submit" value="SAVE PAGE"></div>
+    </form>
+{% endblock %}
